@@ -1,3 +1,6 @@
 flask
 watchdog
 python-dotenv
+flask-wtf
+email-validator
+flask-login
