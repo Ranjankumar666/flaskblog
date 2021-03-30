@@ -1,4 +1,82 @@
 {% extends "base.html" %} {% block content %}
-<h2 class="text-2xl tracking-tight">Welcome {{current_user.name}}</h2>
+<h2 class="sm:text-4xl my-2 text-3xl leading-tight font-semibold">
+    Welcome <span class="text-indigo-500">{{current_user.name}}</span>
+</h2>
+<figure class="bg-gray-100 rounded-xl p-8">
+    <img
+        class="w-32 h-32 rounded-full"
+        src="{{image_file}}"
+        alt=""
+        width="384"
+        height="512"
+    />
+    <div class="pt-6 te space-y-4">
+        <!-- <blockquote>
+            <p class="text-lg font-semibold">
+                “Tailwind CSS is the only framework that I've seen scale on
+                large teams. It’s easy to customize, adapts to any design, and
+                the build size is tiny.”
+            </p>
+        </blockquote> -->
+        <figcaption class="font-medium">
+            <div class="text-cyan-600">{{current_user.name}}</div>
+            <div class="text-gray-500">{{current_user.email}}</div>
+        </figcaption>
+    </div>
+    <div class="w-full">
+        <h2 class="my-4 text-2xl font-semibold tracking-tight">Account Info</h2>
+        <form
+            class="bg-white shadow-md rounded px-8 pt-6 pb-8 my-4"
+            method="POST"
+            action=""
+            enctype="multipart/form-data"
+        >
+            {{form.hidden_tag()}}
+            <div class="mb-4">
+                {{form.name.label(class="block text-gray-700 text-sm font-bold
+                mb-2", for="name")}} {{form.name(class="shadow appearance-none
+                border rounded w-full py-2 px-3 text-gray-700 leading-tight
+                focus:outline-none focus:shadow-outline", id="name",
+                placeholder="Username")}} {% if form.name.errors %} {% for error
+                in form.name.errors %}
+                <p class="text-red-500 text-xs italic">{{error}}</p>
+                {% endfor %} {% endif %}
+            </div>
+            <div class="mb-4">
+                {{form.email.label(class="block text-gray-700 text-sm font-bold
+                mb-2", for="email")}} {{form.email(class="shadow appearance-none
+                border rounded w-full py-2 px-3 text-gray-700 leading-tight
+                focus:outline-none focus:shadow-outline", id="email",
+                placeholder="Email")}} {% if form.email.errors %} {% for error
+                in form.email.errors %}
+                <p class="text-red-500 text-xs italic">{{error}}</p>
+                {% endfor %} {% endif %}
+            </div>
+
+            <div class="mb-4">
+                {{form.picture.label(class="block text-gray-700 text-sm
+                font-bold mb-2", for="email")}} {{form.picture(class="shadow
+                appearance-none border rounded w-full py-2 px-3 text-gray-700
+                leading-tight focus:outline-none focus:shadow-outline",
+                id="email", placeholder="Email")}} {% if form.picture.errors %}
+                {% for error in form.picture.errors %}
+                <p class="text-red-500 text-xs italic">{{error}}</p>
+                {% endfor %} {% endif %}
+            </div>
+
+            <div class="flex items-center justify-between">
+                {{form.submit(class="bg-blue-500 hover:bg-blue-700 text-white
+                font-bold py-2 px-4 rounded focus:outline-none
+                focus:shadow-outline")}}
+                <!-- <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+        Forgot Password?
+      </a> -->
+            </div>
+        </form>
+        <p class="text-center text-gray-500 text-xs">
+            &copy;2020 Flask Blog Corp. All rights reserved.
+        </p>
+    </div>
+</figure>
 
 {% endblock %}

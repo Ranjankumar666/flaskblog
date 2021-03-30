@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<article class="w-full">
+    {% if post.author.id == current_user.id%}
+    <div class="my-4">
+        <a
+            href="/post/update/{{post.id}}"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >Update/Delete</a
+        >
+    </div>
+    {% endif %}
+    <div class="mb-4">
+        <h2 class="sm:text-4xl mt-2 text-3xl leading-tight font-semibold">
+            {{post.title}}
+        </h2>
+        <a
+            href="user/{{current_user.id}} "
+            class="text-indigo-500 font-medium tracking-tight text-lg"
+            >@{{post.author.name}}</a
+        >
+    </div>
+    <div class="leading-tight">{{post.content}}</div>
+</article>
+{% endblock %}
