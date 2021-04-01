@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+<form action="" method="POST">
+    {{form.hidden_tag()}}
+    <div class="mb-4">
+        {{form.password.label(class="block text-gray-700 text-sm font-bold
+        mb-2", for="name")}} {{form.password(class="shadow appearance-none
+        border rounded w-full py-2 px-3 text-gray-700 leading-tight
+        focus:outline-none focus:shadow-outline", id="name", placeholder="Enter
+        new Password...")}} {% if form.password.errors %} {% for error in
+        form.password.errors %}
+        <p class="text-red-500 text-xs italic">{{error}}</p>
+        {% endfor %} {% endif %}
+    </div>
+    <div class="mb-4">
+        {{form.confirm_password.label(class="block text-gray-700 text-sm
+        font-bold mb-2", for="name")}} {{form.confirm_password(class="shadow
+        appearance-none border rounded w-full py-2 px-3 text-gray-700
+        leading-tight focus:outline-none focus:shadow-outline", id="name",
+        placeholder="COnfrim new password...")}} {% if
+        form.confirm_password.errors %} {% for error in
+        form.confirm_password.errors %}
+        <p class="text-red-500 text-xs italic">{{error}}</p>
+        {% endfor %} {% endif %}
+    </div>
+    {{ form.submit(class="bg-blue-500 hover:bg-blue-700 text-white font-bold
+    py-2 px-4 rounded focus:outline-none focus:shadow-outline") }}
+</form>
+{% endblock %}
