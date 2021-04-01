@@ -9,7 +9,7 @@ Installation:
 #### 1. Create a virtual environment
 
 ```bash
-$ python -m venv venv
+python -m venv venv
 ```
 
 for windows:
@@ -23,6 +23,8 @@ for linux:
 ```bash
 venv/bin/activate
 ```
+
+Then run:
 
 ```bash
 pip install -r requirements.txt
