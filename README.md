@@ -24,7 +24,7 @@ for linux:
 venv/bin/activate
 ```
 
-Then run:
+#### 2. Then run:
 
 ```bash
 pip install -r requirements.txt
