@@ -2,5 +2,5 @@
     "editor.fontSize": 16,
     "editor.fontLigatures": null,
     "editor.fontFamily": "'Fantasque Sans Mono',Consolas, 'Courier New', monospace",
-    "workbench.iconTheme": "vs-seti"
+    "workbench.iconTheme": "material-icon-theme"
 }

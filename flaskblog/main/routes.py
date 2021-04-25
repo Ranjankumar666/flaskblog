@@ -30,14 +30,15 @@ def about():
 
 def send_reset_email(user):
     token = user.get_reset_token()
-    msg = Message('Password Reset Request',
-                  sender='noreply@demo.com', recipients=[user.email])
-    msg.body = f'''
-        Click the link to reset your account password: \n
-{url_for('main.reset_password', token=token, _external=True)}
+    msg = Message('Password Reset Request', recipients=[user.email])
+#     msg.body = f'''Click the link to reset your account password: \n
+# {url_for('main.reset_password', token=token, _external=True)}
 
-if you didn't request the reset, Ignore it
-    '''
+# if you didn't request the reset, Ignore it
+#     '''
+    reset_url = url_for('main.reset_password', token=token, _external=True)
+    msg.html = render_template(
+        'email.html', token=token, user=user, reset_url=reset_url)
 
     mail.send(msg)
 
